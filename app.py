@@ -56,7 +56,7 @@ def main():
 
     # Sidebar - imagem
     try:
-        url_img = "https://raw.githubusercontent.com/JoaoPauloCosta812/Marketing-Base-Ciencia-de-Dados/main/img/bank_img.png"
+        url_img = "https://github.com/JoaoPauloCosta812/Marketing-Base-Ciencia-de-Dados/blob/main/img/bank_img.png?raw=true"
         response = requests.get(url_img)
         response.raise_for_status()
         image = Image.open(BytesIO(response.content))
@@ -197,6 +197,7 @@ def main():
 # EXECUÇÃO
 if __name__ == '__main__':
     main()
+
 
 
 
