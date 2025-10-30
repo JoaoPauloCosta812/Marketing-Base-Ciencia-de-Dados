@@ -55,8 +55,9 @@ def main():
 
     # Sidebar - imagem
     try:
-        url_img = "https://github.com/JoaoPauloCosta812/Marketing-Base-Ciencia-de-Dados/blob/main/img/bank_img.png?raw=true"
+        url_img = "https://raw.githubusercontent.com/JoaoPauloCosta812/Marketing-Base-Ciencia-de-Dados/main/img/bank_img.png"
         st.sidebar.image(url_img, use_container_width=True)
+
     except:
         st.sidebar.warning("Imagem não encontrada.")
 
@@ -193,6 +194,7 @@ def main():
 # EXECUÇÃO
 if __name__ == '__main__':
     main()
+
 
 
 
