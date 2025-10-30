@@ -60,7 +60,7 @@ def main():
         r = requests.get(url_img, timeout=10)
         r.raise_for_status()
         image = Image.open(BytesIO(r.content))
-        st.sidebar.image(image)  # <- sem use_container_width
+        st.sidebar.image(image)
     except Exception as e:
         st.sidebar.warning(f"Imagem não encontrada. Detalhe: {e}")
 
@@ -197,6 +197,7 @@ def main():
 # EXECUÇÃO
 if __name__ == '__main__':
     main()
+
 
 
 
