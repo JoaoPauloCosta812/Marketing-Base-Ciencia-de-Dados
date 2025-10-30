@@ -4,6 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
+import requests
 
 # CONFIGURAÇÃO INICIAL
 st.set_page_config(
@@ -56,10 +57,12 @@ def main():
     # Sidebar - imagem
     try:
         url_img = "https://raw.githubusercontent.com/JoaoPauloCosta812/Marketing-Base-Ciencia-de-Dados/main/img/bank_img.png"
-        st.sidebar.image(url_img, use_container_width=True)
-
-    except:
-        st.sidebar.warning("Imagem não encontrada.")
+        response = requests.get(url_img)
+        response.raise_for_status()
+        image = Image.open(BytesIO(response.content))
+        st.sidebar.image(image, use_container_width=True)
+    except Exception as e:
+        st.sidebar.warning(f"Imagem não encontrada. Detalhe: {e}")
 
     # Upload de arquivo
     st.sidebar.write("## Suba o arquivo")
@@ -194,6 +197,7 @@ def main():
 # EXECUÇÃO
 if __name__ == '__main__':
     main()
+
 
 
 
