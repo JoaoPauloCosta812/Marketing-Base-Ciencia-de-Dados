@@ -56,11 +56,11 @@ def main():
 
     # Sidebar - imagem
     try:
-        url_img = "https://github.com/JoaoPauloCosta812/Marketing-Base-Ciencia-de-Dados/blob/main/img/bank_img.png?raw=true"
-        response = requests.get(url_img)
-        response.raise_for_status()
-        image = Image.open(BytesIO(response.content))
-        st.sidebar.image(image, use_container_width=True)
+        url_img = "https://raw.githubusercontent.com/JoaoPauloCosta812/Marketing-Base-Ciencia-de-Dados/main/img/bank_img.png"
+        r = requests.get(url_img, timeout=10)
+        r.raise_for_status()
+        image = Image.open(BytesIO(r.content))
+        st.sidebar.image(image)  # <- sem use_container_width
     except Exception as e:
         st.sidebar.warning(f"Imagem não encontrada. Detalhe: {e}")
 
